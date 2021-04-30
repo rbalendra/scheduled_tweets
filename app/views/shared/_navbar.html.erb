@@ -13,8 +13,26 @@
         <li class="nav-item">
           <%= link_to "About", about_path, class: "nav-link" %>
         </li>
-    
       </ul>
+      
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if Current.user %>
+        <li class="nav-item">
+          <span class="navbar-text"><%= Current.user.email %></span>
+          </li>
+            <%= button_to "Log out", logout_path, method: :delete, class: "btn btn-outline-secondary"  %>
+        <% else %>
+        <li class="nav-item">
+        <%= link_to "sign up", sign_up_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "login", sign_in_path, class: "nav-link"  %>
+        </li>
+        <% end %>
+        
+      </ul>
+
     </div>
   </div>
 </nav>
