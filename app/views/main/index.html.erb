@@ -3,11 +3,22 @@
 <div class="d-flex align-items-center justify-content-center">
 
 <h1>Welcome to Scheduled Tweets</h1>
-
-  <p>
-    <% if @user %>  <%# if the user is present %>
-    Logged in as: <%= @user.email %>
-    <% end %>
-  </p>
 </div>
 
+
+
+<div>
+  <% if @user %>  <%# if the user is present %>
+  Logged in as: <%= @user.email %>
+
+
+
+  <%# <%= link_to "Log Out", logout_path, method: :delete %> 
+  <%# links on a page are GET request but JS tranforms into a DELETE request behind the scenes %>
+
+  <%= button_to "Log out", logout_path, method: :delete %>
+  <%# more correct to use a form for delete request %>
+
+  <% end %>
+
+</div>
