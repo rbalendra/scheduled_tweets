@@ -6,8 +6,9 @@ class PasswordMailer < ApplicationMailer
   #   en.password_mailer.reset.subject
   #
   def reset
-    @greeting = "Hi"
 
-    mail to: "to@example.org"
+    params[:user]
+
+    mail to: params[:user].email
   end
 end
